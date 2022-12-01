@@ -50,7 +50,7 @@ Step2: searchsorted
 | dim1 | dim2 | dim3 | value | index full table |
 | ---- | ---- | ---- | ----- | ---------------- |
 | 'a1' | 'b2' | 'c1' | 10    | 3                |
-| 'a2' | 'b3' | 'c2' | 20    | 14               |
+| 'a2' | 'b3' | 'c2' | 20    | 12               |
 
 
 Summary:
