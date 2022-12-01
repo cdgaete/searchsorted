@@ -8,6 +8,8 @@ cargo run --example eg1
 
 # searchsorted
 
+code repository here: https://github.com/cdgaete/searchsorted
+
 Two functions are included cartesian_product and searchsorted:
 
 The idea is the following, we have a table in long format (sample):
