@@ -7,7 +7,11 @@ edition = "2021"
 
 [dependencies]
 searchsorted = {path="../searchsorted", version = "0.1.0"}
+rand="0.8.5"
 
 [[example]]
 name = "eg1"
 path = "examples/eg1.rs"
+[[example]]
+name = "eg2"
+path = "examples/eg2.rs"

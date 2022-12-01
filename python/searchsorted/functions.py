@@ -17,7 +17,7 @@ from ._internal import (
     searchsorted_7d,
     searchsorted_8d,
 )
-
+from itertools import product
 
 def cartesian_product(*args):
     assert all([isinstance(arg, (list, np.ndarray)) for arg in args])

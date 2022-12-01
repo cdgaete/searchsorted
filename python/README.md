@@ -1,6 +1,19 @@
 ## Install python package and run example
 
-Pending...
+Install python package in a new environment
+
+```bash
+conda create -n new_env python=3.10
+activate new_env
+pip install maturin
+maturin develop
+```
+
+run examples
+```bash
+cd examples
+python eg1.py
+```
 
 
 # searchsorted

@@ -61,3 +61,83 @@ Summary:
 - cartesian product returns: an array with tuples
 - searchsorted input: full table (array with tuples) and sample table (array with tuples)
 - searchsorted returns: an array with integers
+
+## Functions
+
+Cartesian product:
+
+```Rust
+type TS3 = (String,String,String);
+
+pub fn cartesian_3d(l1: Vec<String>, l2: Vec<String>, l3: Vec<String>) -> Vec<TS3> {
+    let mut collector = Vec::new();
+    for tuple in iproduct!(l1,l2,l3) {
+        collector.push(tuple);
+    };
+    collector
+}
+```
+
+searchsorted:
+
+```Rust
+type TS3 = (String,String,String);
+
+pub fn searchsorted_3d(dense_list: Vec<TS3>, index_list: Vec<TS3>) -> Vec<i64> {
+    let mut htbl = HashMap::new();
+    let mut i: i64 = 0;
+    for key in dense_list.iter() {
+        htbl.insert(key, i);
+        i += 1i64
+    };
+    let mut location: Vec<i64> = Vec::new();
+    for tuple in index_list.iter() {
+        let value = htbl.get(tuple).unwrap();
+        location.push(*value);
+    };
+    location
+}
+```
+
+## Benchmark
+
+In examples folder eg2.py and eg2.rs contain the benchmark code:
+
+- full vector: a million tupples of five string each.
+- sample vector: 1000 tuples
+- each string in a tuple has 2 chars
+
+Results:
+
+Cartesian product:
+
+```bash
+Rust-python   eTime: 1342697 μs.
+Pure Rust     eTime   246470 μs.
+Pure python   eTime:   84879 μs.
+```
+
+searchsorted:
+
+```bash
+Rust-python   eTime: 2599270 μs.
+Pure Rust     eTime  2015062 μs.
+Pure python   eTime:  103814 μs.
+```
+
+Code for pure Python:
+---------------------
+
+Cartesian product: Itertools package
+
+```Python
+list(itertools.product(lst1,lst2,lst3,lst4,lst5))
+```
+
+searchsorted: dictionary and list comprension
+
+```Python
+def pysearchsorted(full_list, sample_list):
+    fullhashtable = {tupl: idx for idx, tupl in enumerate(full_list)}
+    return [fullhashtable[tupl] for tupl in sample_list]
+```
