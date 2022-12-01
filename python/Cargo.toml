@@ -1,0 +1,16 @@
+[package]
+name = "py-searchsorted"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+name = "py_searchsorted"
+crate-type = ["cdylib"]
+
+[package.metadata.maturin]
+name = "searchsorted._internal"
+
+[dependencies]
+pyo3 = { version = "0.17.3", features = ["extension-module"] }
+itertools = "0.10.5"
+searchsorted = {path="../searchsorted", version = "0.1.0"}

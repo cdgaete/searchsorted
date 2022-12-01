@@ -1,0 +1,13 @@
+[package]
+name = "searchsorted-examples"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+searchsorted = {path="../searchsorted", version = "0.1.0"}
+
+[[example]]
+name = "eg1"
+path = "examples/eg1.rs"
