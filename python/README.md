@@ -3,10 +3,12 @@
 Install python package in a new environment
 
 ```bash
+git clone https://github.com/cdgaete/searchsorted.git
+cd searchsorted
+cd python
 conda create -n new_env python=3.10
 activate new_env
-pip install maturin
-maturin develop
+pip install .
 ```
 
 run examples
